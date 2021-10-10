@@ -8,16 +8,10 @@ import { Ionicons } from "@expo/vector-icons";
 
 import { SafeAreaViewContainer } from "../../components/utility/SafeAreaViewContainer";
 
-// import { RestaurantsNavigator } from "./restaurants.navigator";
+import { RestaurantsNavigator } from "./restaurants.navigator";
 // import { MapScreen } from "../../features/map/screens/map.screen";
 
 const Tab = createBottomTabNavigator();
-
-const HomeScreen = () => (
-  <SafeAreaViewContainer>
-    <Text>Home</Text>
-  </SafeAreaViewContainer>
-);
 
 const MapsScreen = () => (
   <SafeAreaViewContainer>
@@ -55,7 +49,7 @@ export const AppNavigator = () => (
         inactiveTintColor: "gray",
       }}
     >
-      <Tab.Screen name="Restaurants" component={HomeScreen} />
+      <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
       <Tab.Screen name="Map" component={MapsScreen} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
