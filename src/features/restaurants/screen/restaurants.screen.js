@@ -7,6 +7,7 @@ import styled from "styled-components/native";
 import { SafeAreaViewContainer } from "../../../components/utility/SafeAreaViewContainer";
 import { Search } from "../components/Search.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
+import { Spacer } from "../../../components/Spacer/Spacer.component";
 
 import DATA from "../data/Data";
 
@@ -16,7 +17,7 @@ const RestaurantList = styled(FlatList).attrs({
   },
 })``;
 
-export const RestaurantsScreen = ({ navigation }) => {
+export const RestaurantsScreen = () => {
   return (
     <SafeAreaViewContainer>
       <Search />
@@ -27,7 +28,9 @@ export const RestaurantsScreen = ({ navigation }) => {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity onPress={console.log}>
-              <RestaurantInfoCard restaurant={item} />
+              <Spacer position="bottom" size="large">
+                <RestaurantInfoCard restaurant={item} />
+              </Spacer>
             </TouchableOpacity>
           );
         }}
