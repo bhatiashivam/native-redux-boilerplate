@@ -3,7 +3,7 @@ import { SvgXml } from "react-native-svg";
 import { View } from "react-native";
 
 // import { Favourite } from "../../../components/favourites/favourite.component";
-import { Spacer } from "../../../components/spacer/spacer.component";
+import { Spacer } from "../../../components/Spacer/Spacer.component";
 import { Text } from "../../../components/typography/text.component";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
@@ -42,9 +42,8 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         <Text variant="label">{name}</Text>
         <Section>
           <Rating>
-            {/* // add SVG icon here */}
-            {ratingArray.map((_, i) => (
-              <Text>*</Text>
+            {ratingArray.map((_, idx) => (
+              <Text key={idx}>*</Text>
             ))}
           </Rating>
           <SectionEnd>
@@ -53,7 +52,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
             )}
 
             <Spacer position="left" size="large">
-              {isOpenNow && <Text>Open Now</Text>} {/* // add SVG icon here */}
+              {isOpenNow && <Text>Open Now</Text>}
             </Spacer>
 
             <Spacer position="left" size="large">
