@@ -1,6 +1,5 @@
 import React from "react";
 import { SvgXml } from "react-native-svg";
-import { View } from "react-native";
 
 import { Spacer } from "../../../components/Spacer/Spacer.component";
 import { Text } from "../../../components/typography/text.component";
@@ -29,6 +28,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily = false,
+    placeId = "",
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
@@ -40,8 +40,13 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         <Text variant="label">{name}</Text>
         <Section>
           <Rating>
-            {ratingArray.map((_, idx) => (
-              <Text key={idx}>*</Text>
+            {ratingArray.map((_, i) => (
+              <SvgXml
+                key={`star-${placeId}-${i}`}
+                xml={star}
+                width={20}
+                height={20}
+              />
             ))}
           </Rating>
           <SectionEnd>
@@ -50,7 +55,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
             )}
 
             <Spacer position="left" size="large">
-              {isOpenNow && <Text>Open Now</Text>}
+              {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
             </Spacer>
 
             <Spacer position="left" size="large">

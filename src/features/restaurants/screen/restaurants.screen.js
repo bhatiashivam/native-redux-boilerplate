@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FlatList, TouchableOpacity, Text } from "react-native";
+import { FlatList, TouchableOpacity } from "react-native";
 
 import styled from "styled-components/native";
 
